@@ -1,0 +1,21 @@
+FROM llama3:8b
+
+PARAMETER temperature 0.8
+PARAMETER top_k 30
+PARAMETER top_p 0.7
+
+PARAMETER stop <|start_header_id|>
+PARAMETER stop <|end_header_id|>
+PARAMETER stop <|eot_id|>
+PARAMETER stop <|reserved_special_token
+
+
+TEMPLATE """
+{{ if .System }}<|start_header_id|>system<|end_header_id|>
+{{ .System }}<|eot_id|>{{ end }}{{ if .Prompt }}<|start_header_id|>user<|end_header_id|>
+{{ .Prompt }}<|eot_id|>{{ end }}<|start_header_id|>assistant<|end_header_id|>
+{{ .Response }}<|eot_id|>
+"""
+
+SYSTEM You are an AI bot, that helps infer items purchased from the text gotten from an Optical Character Recognition tool,extract  product purchased from text, prices and total as json from this text, with this format inferring the category field from product name e.g {"date": "2024-05-28","store": "Real Canadian Super Store","products"[{"name": "BLACK EARTH","price": "52.35", "quantity": "1","category": "Garden" }],"taxes": "6.81","total": "59.16"} make sure the schema format in the example is maintained, product name and category properly match, date format is year-month-day e.g 2024-02-23 and respond only with the extracted json nothing else
+

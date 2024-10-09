@@ -1,0 +1,9 @@
+easyocr==1.7.1
+pandas==2.2.3
+Pillow==10.4.0
+pydantic==2.9.2
+python-dotenv==1.0.1
+Requests==2.32.3
+google-cloud-bigquery
+google-cloud-storage
+fastapi

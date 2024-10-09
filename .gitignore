@@ -1,0 +1,14 @@
+/exclude/*
+/upload.sh
+/report.csv
+/src/testReceipts/
+/src/docker-compose.yaml
+/src/Terraform/terraform.tfstate
+/src/Terraform/terraform.tfstate.backup
+/src/Terraform/.terraform.lock.hcl
+/src/Terraform/.terraform/
+/src/Terraform/variable.txt
+**/**/.DS_Store
+**/**/.idea/
+**/.DS_Store
+**/__pycache__/
