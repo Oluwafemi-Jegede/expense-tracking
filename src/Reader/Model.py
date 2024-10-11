@@ -30,4 +30,4 @@ def validate_schema(json_result):
         expense_model = Expenses.model_validate(json_result)
         return expense_model.model_dump_json()
     except ValidationError as v:
-        logger.info(v)
+        logger.error(v)
