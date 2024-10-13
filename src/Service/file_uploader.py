@@ -39,8 +39,8 @@ async def upload_file(files: List[UploadFile] = File(...)):
         except Exception as e:
             logging.error(e)
 
-@app.get("/get_result", status_code=status.HTTP_200_OK)
-async def get_result(file_name:str) -> List[dict]:
+@app.get("/get_receipt_by_name", status_code=status.HTTP_200_OK)
+async def get_receipt_by_name(file_name:str) -> List[dict]:
     bq_client = bigquery.Client(project=project_id)
     try:
         query_result = bq_client.query(f"SELECT * EXCEPT(path) FROM `{project_id}.expenses.expense_report` WHERE path like "
